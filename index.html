@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master SEO Affiliate Generator | Análises Profissionais</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="index.css">
+    
+    <style>
+        /* Component Specific Overrides/Extensions for this page */
+        header {
+            background-color: var(--color-primary-container);
+            color: var(--color-on-primary-container);
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--color-surface-container);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: var(--font-weight-h1);
+            color: var(--color-on-primary);
+            text-decoration: none;
+        }
+
+        .hero {
+            background-color: var(--color-surface);
+            text-align: center;
+            border-bottom: 1px solid var(--color-surface-container);
+        }
+
+        .hero h1 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero p {
+            color: var(--color-on-surface-variant);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Product Card specific */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            position: relative;
+        }
+
+        .badge-editors-choice {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            background-color: var(--color-secondary-container); /* Trust Orange */
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: var(--rounded-full);
+            font-size: var(--font-size-label);
+            font-weight: var(--font-weight-label);
+            letter-spacing: var(--letter-spacing-label);
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            margin-top: var(--spacing-sm);
+        }
+
+        .rating {
+            color: var(--color-secondary-container);
+            font-size: 18px;
+        }
+
+        /* Pros and Cons */
+        .pros-cons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .pros-list, .cons-list {
+            list-style: none;
+            padding: var(--spacing-sm);
+            border-radius: var(--rounded-md);
+        }
+
+        .pros-list {
+            background-color: #E6F4EA; /* Subtle green */
+            color: var(--color-on-surface);
+        }
+
+        .cons-list {
+            background-color: #F2F2F2; /* Warm gray */
+            color: var(--color-on-surface);
+        }
+
+        .pros-list li::before {
+            content: "✓ ";
+            color: #10B981;
+            font-weight: bold;
+        }
+
+        .cons-list li::before {
+            content: "✕ ";
+            color: var(--color-outline);
+            font-weight: bold;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-md);
+        }
+
+        .comparison-table th {
+            background-color: var(--color-primary-container);
+            color: var(--color-on-primary-container);
+            padding: var(--spacing-sm);
+            text-align: left;
+            font-weight: var(--font-weight-h3);
+        }
+
+        .comparison-table td {
+            padding: var(--spacing-sm);
+            border-bottom: 1px solid var(--color-surface-container);
+        }
+
+        .comparison-table tr:nth-child(even) td {
+            background-color: var(--color-surface-container-low);
+        }
+        
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-surface-container-lowest);
+            padding: var(--spacing-sm) 0;
+            border-top: 1px solid var(--color-surface-container);
+            z-index: 100;
+        }
+
+        .sticky-cta-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .pros-cons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">SEO Master</a>
+            <nav>
+                <a href="#reviews" class="btn btn-ghost" style="color: var(--color-on-primary); border-color: transparent;">Reviews</a>
+                <a href="#comparison" class="btn btn-ghost" style="color: var(--color-on-primary); border-color: transparent;">Comparação</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section hero">
+        <div class="container text-column">
+            <div class="label-caps">Guia Atualizado 2026</div>
+            <h1>As Melhores Ferramentas de SEO do Mercado</h1>
+            <p class="text-lg">Análise técnica detalhada, baseada em dados e testes reais para profissionais exigentes.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <section id="reviews" class="section text-column">
+            <h2>Nossas Análises Aprofundadas</h2>
+            <p>Abaixo, detalhamos as principais escolhas da nossa equipe de editores após 100 horas de testes intensivos.</p>
+
+            <div class="product-grid">
+                <div class="card product-card shadow-ambient">
+                    <div class="badge-editors-choice">Editor's Choice</div>
+                    <h3 class="product-title">Ahrefs Pro</h3>
+                    <div class="rating">★★★★★ <span style="color: var(--color-outline); font-size: 14px;">(9.8/10)</span></div>
+                    <p>O padrão ouro para análise de backlinks e auditoria técnica de grandes sites.</p>
+                    
+                    <div class="pros-cons-grid">
+                        <ul class="pros-list">
+                            <li>Banco de dados massivo</li>
+                            <li>Auditoria ultra-rápida</li>
+                            <li>Métricas precisas</li>
+                        </ul>
+                        <ul class="cons-list">
+                            <li>Preço elevado para iniciantes</li>
+                            <li>Curva de aprendizado</li>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="btn btn-primary" style="margin-top: auto; width: 100%;">Ver Preços Oficiais</a>
+                </div>
+
+                <div class="card product-card">
+                    <h3 class="product-title">SEMrush Guru</h3>
+                    <div class="rating">★★★★☆ <span style="color: var(--color-outline); font-size: 14px;">(9.2/10)</span></div>
+                    <p>A suíte tudo-em-um mais versátil para agências e criadores de conteúdo.</p>
+                    
+                    <div class="pros-cons-grid">
+                        <ul class="pros-list">
+                            <li>Gestão de PPC inclusa</li>
+                            <li>Templates de conteúdo</li>
+                        </ul>
+                        <ul class="cons-list">
+                            <li>Interface um pouco poluída</li>
+                        </ul>
+                    </div>
+
+                    <a href="#" class="btn btn-ghost" style="margin-top: auto; width: 100%;">Ler Análise Completa</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="section">
+            <div class="text-column" style="margin-bottom: var(--spacing-md);">
+                <h2>Tabela de Comparação Técnica</h2>
+                <p>Compare as métricas e recursos lado a lado para tomar a melhor decisão para sua operação.</p>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Ferramenta</th>
+                            <th>Backlinks Index</th>
+                            <th>Keyword Magic</th>
+                            <th>Preço Inicial</th>
+                            <th>Veredito</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ahrefs</strong></td>
+                            <td>Excelente (Trilhões)</td>
+                            <td>Bom</td>
+                            <td>$99/mês</td>
+                            <td><a href="#" class="btn btn-primary" style="padding: 4px 12px;">Comprar</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>SEMrush</strong></td>
+                            <td>Muito Bom</td>
+                            <td>Excelente</td>
+                            <td>$119/mês</td>
+                            <td><a href="#" class="btn btn-secondary" style="padding: 4px 12px;">Comprar</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Moz Pro</strong></td>
+                            <td>Bom</td>
+                            <td>Regular</td>
+                            <td>$99/mês</td>
+                            <td><a href="#" class="btn btn-ghost" style="padding: 4px 12px;">Comprar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="sticky-cta-bar shadow-ambient">
+        <div class="container">
+            <div>
+                <strong style="color: var(--color-primary);">Pronto para dominar as SERPs?</strong>
+                <span style="color: var(--color-on-surface-variant); display: block; font-size: 14px;">Comece com a melhor ferramenta hoje.</span>
+            </div>
+            <a href="#" class="btn btn-primary">Começar Teste Grátis</a>
+        </div>
+    </div>
+
+    <!-- Padding for sticky bar -->
+    <div style="height: 100px;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
