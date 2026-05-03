@@ -13,12 +13,11 @@
     <link rel="stylesheet" href="index.css">
     
     <style>
-        /* Component Specific Overrides/Extensions for this page */
         header {
-            background-color: var(--color-primary-container);
-            color: var(--color-on-primary-container);
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: #ffffff;
             padding: var(--spacing-md) 0;
-            border-bottom: 1px solid var(--color-surface-container);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
         
         .header-content {
@@ -28,33 +27,95 @@
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: var(--font-weight-h1);
-            color: var(--color-on-primary);
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
             text-decoration: none;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40%;
+            height: 3px;
+            background: #feae2c;
+            border-radius: 2px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 24px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         .hero {
-            background-color: var(--color-surface);
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
             text-align: center;
-            border-bottom: 1px solid var(--color-surface-container);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(254, 174, 44, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(26, 43, 60, 0.05) 0%, transparent 40%);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-2%, 2%); }
         }
 
         .hero h1 {
-            color: var(--color-primary);
+            color: #0f2027;
             margin-bottom: var(--spacing-sm);
+            position: relative;
+            font-size: 56px;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            color: var(--color-on-surface-variant);
+            color: #495057;
             margin-bottom: var(--spacing-md);
+            font-size: 20px;
+            position: relative;
         }
 
-        /* Product Card specific */
+        .hero .label-caps {
+            display: inline-block;
+            background: linear-gradient(135deg, #feae2c, #f59e0b);
+            color: #0f2027;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-md);
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
             margin-top: var(--spacing-md);
         }
 
@@ -63,99 +124,240 @@
             flex-direction: column;
             gap: var(--spacing-sm);
             position: relative;
+            background: #ffffff;
+            border: none;
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
         }
 
         .badge-editors-choice {
             position: absolute;
-            top: -12px;
-            left: 24px;
-            background-color: var(--color-secondary-container); /* Trust Orange */
-            color: #ffffff;
-            padding: 4px 12px;
-            border-radius: var(--rounded-full);
-            font-size: var(--font-size-label);
-            font-weight: var(--font-weight-label);
-            letter-spacing: var(--letter-spacing-label);
+            top: -14px;
+            left: 32px;
+            background: linear-gradient(135deg, #feae2c, #f59e0b);
+            color: #0f2027;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(254, 174, 44, 0.4);
         }
 
         .product-title {
             margin-top: var(--spacing-sm);
+            font-size: 24px;
+            color: #0f2027;
+            font-weight: 700;
         }
 
         .rating {
-            color: var(--color-secondary-container);
-            font-size: 18px;
+            color: #feae2c;
+            font-size: 20px;
+            letter-spacing: 2px;
         }
 
-        /* Pros and Cons */
+        .rating span {
+            color: #868e96;
+            font-size: 14px;
+            letter-spacing: 0;
+            margin-left: 8px;
+        }
+
+        .product-card p {
+            color: #6c757d;
+            line-height: 1.7;
+        }
+
         .pros-cons-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-md);
+            gap: 16px;
+            margin-top: 24px;
         }
 
         .pros-list, .cons-list {
             list-style: none;
-            padding: var(--spacing-sm);
-            border-radius: var(--rounded-md);
+            padding: 20px;
+            border-radius: 14px;
         }
 
         .pros-list {
-            background-color: #E6F4EA; /* Subtle green */
-            color: var(--color-on-surface);
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
         }
 
         .cons-list {
-            background-color: #F2F2F2; /* Warm gray */
-            color: var(--color-on-surface);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #495057;
+        }
+
+        .pros-list li, .cons-list li {
+            padding: 8px 0;
+            font-size: 14px;
         }
 
         .pros-list li::before {
-            content: "✓ ";
-            color: #10B981;
-            font-weight: bold;
+            content: "✓";
+            background: #28a745;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 11px;
         }
 
         .cons-list li::before {
-            content: "✕ ";
-            color: var(--color-outline);
-            font-weight: bold;
+            content: "✕";
+            background: #6c757d;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 11px;
         }
 
-        /* Comparison Table */
+        .product-card .btn {
+            margin-top: 20px;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .product-card .btn-primary {
+            background: linear-gradient(135deg, #feae2c, #f59e0b);
+            box-shadow: 0 4px 15px rgba(254, 174, 44, 0.3);
+        }
+
+        .product-card .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(254, 174, 44, 0.4);
+        }
+
+        .product-card .btn-ghost {
+            border: 2px solid #dee2e6;
+            color: #495057;
+            background: transparent;
+        }
+
+        .product-card .btn-ghost:hover {
+            background: #f8f9fa;
+            border-color: #feae2c;
+            color: #0f2027;
+        }
+
         .comparison-table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
             margin-top: var(--spacing-md);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
 
         .comparison-table th {
-            background-color: var(--color-primary-container);
-            color: var(--color-on-primary-container);
-            padding: var(--spacing-sm);
+            background: linear-gradient(135deg, #0f2027, #203a43);
+            color: #ffffff;
+            padding: 20px;
             text-align: left;
-            font-weight: var(--font-weight-h3);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .comparison-table td {
-            padding: var(--spacing-sm);
-            border-bottom: 1px solid var(--color-surface-container);
+            padding: 18px 20px;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 15px;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
         }
 
         .comparison-table tr:nth-child(even) td {
-            background-color: var(--color-surface-container-low);
+            background-color: #f8f9fa;
         }
-        
+
+        .comparison-table tr:hover td {
+            background-color: #fff3cd;
+        }
+
+        .comparison-table strong {
+            color: #0f2027;
+        }
+
+        .comparison-table .btn {
+            padding: 8px 18px;
+            font-size: 13px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .comparison-table .btn-primary {
+            background: linear-gradient(135deg, #feae2c, #f59e0b);
+        }
+
+        .comparison-table .btn-secondary {
+            background: linear-gradient(135deg, #0f2027, #203a43);
+        }
+
+        .comparison-table .btn-ghost {
+            border: 1px solid #dee2e6;
+            color: #495057;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            color: #0f2027;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #feae2c, #f59e0b);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        .section.text-column h2::after {
+            margin: 16px 0 0 0;
+        }
+
         .sticky-cta-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: var(--color-surface-container-lowest);
-            padding: var(--spacing-sm) 0;
-            border-top: 1px solid var(--color-surface-container);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 0;
+            border-top: none;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
             z-index: 100;
         }
 
@@ -164,10 +366,43 @@
             justify-content: space-between;
             align-items: center;
         }
+
+        .sticky-cta-bar strong {
+            color: #0f2027;
+            font-size: 18px;
+        }
+
+        .sticky-cta-bar span {
+            color: #6c757d;
+            display: block;
+            font-size: 13px;
+        }
+
+        .sticky-cta-bar .btn-primary {
+            background: linear-gradient(135deg, #feae2c, #f59e0b);
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(254, 174, 44, 0.3);
+        }
         
         @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
             .pros-cons-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sticky-cta-bar .container {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
             }
         }
     </style>
@@ -186,7 +421,7 @@
 
     <section class="section hero">
         <div class="container text-column">
-            <div class="label-caps">Guia Atualizado 2026</div>
+            <span class="label-caps">Guia Atualizado 2026</span>
             <h1>As Melhores Ferramentas de SEO do Mercado</h1>
             <p class="text-lg">Análise técnica detalhada, baseada em dados e testes reais para profissionais exigentes.</p>
         </div>
@@ -220,7 +455,7 @@
                     <a href="#" class="btn btn-primary" style="margin-top: auto; width: 100%;">Ver Preços Oficiais</a>
                 </div>
 
-                <div class="card product-card">
+                <div class="card product-card shadow-ambient">
                     <h3 class="product-title">SEMrush Guru</h3>
                     <div class="rating">★★★★☆ <span style="color: var(--color-outline); font-size: 14px;">(9.2/10)</span></div>
                     <p>A suíte tudo-em-um mais versátil para agências e criadores de conteúdo.</p>
